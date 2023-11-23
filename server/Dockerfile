@@ -11,5 +11,6 @@ COPY --from=builder /usr/src/app/node_modules ./node_modules
 COPY --from=builder /usr/src/app/build ./build
 COPY --from=builder /usr/src/app/public ./public
 COPY ./package.json ./package.json
+COPY ./prisma ./prisma
 EXPOSE 80
 CMD npx prisma migrate deploy && npm run start
