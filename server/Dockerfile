@@ -12,4 +12,4 @@ COPY --from=builder /usr/src/app/build ./build
 COPY --from=builder /usr/src/app/public ./public
 COPY ./package.json ./package.json
 EXPOSE 80
-CMD npm run start
+CMD npx prisma migrate deploy && npm run start
