@@ -1,0 +1,44 @@
+# Based on https://github.com/ajayyy/sb-mirror/blob/main/.github/workflows/docker-build.yml
+name: Docker image builds
+on:
+  push:
+    branches:
+      - deployment
+  workflow_dispatch:
+
+jobs:
+  server:
+    uses: ./.github/workflows/docker-build.yml
+    with:
+      name: "server"
+      username: "ajayyy"
+      folder: "server"
+    secrets:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  scraper:
+    uses: ./.github/workflows/docker-build.yml
+    with:
+      name: "scraper"
+      username: "ajayyy"
+      target: "scraper"
+      folder: "scraper"
+    secrets:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  analyzer:
+    uses: ./.github/workflows/docker-build.yml
+    with:
+      name: "analyzer"
+      username: "ajayyy"
+      target: "analyzer"
+      folder: "scraper"
+    secrets:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  crawler:
+    uses: ./.github/workflows/docker-build.yml
+    with:
+      name: "crawler"
+      username: "ajayyy"
+      target: "crawler"
+      folder: "scraper"
+    secrets:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

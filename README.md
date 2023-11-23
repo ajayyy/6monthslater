@@ -95,3 +95,11 @@ For more information on running and testing the analyzer, see its [README file](
 Automated tests are available for the parser and analyzer, and can be executed by running `pytest`.
 
 Further information about how the scraper works can be found in [it's dedicated documentation](./scraper/README.md).
+
+## Deployment
+
+Deployment is done through the docker compose file. You must first install docker, then setup the environment variable configurations.
+
+To setup the configuration files, rename each `.env.example` file in the `docker` folder to `.env` and fill in the values. The credentials in `docker/database.env` must match the credentials in the `DATABASE_URL` in `docker/server.env`.
+
+Then you can run `docker-compose up` to start the application.
